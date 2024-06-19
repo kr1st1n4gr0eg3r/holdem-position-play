@@ -1,5 +1,8 @@
-import React from 'react';
-import { Button, Typography, Box, Chip, Stack } from '@mui/material';
+// src/PokerTable.js
+import React, { useState } from 'react';
+import { Button, Typography, Box } from '@mui/material';
+import PositionChip from './PositionChip'; // Import the PositionChip component
+import Cards from './Cards'; // Import the new Cards component
 import './positions.css';
 
 const positions = [
@@ -16,14 +19,27 @@ const positions = [
 ];
 
 const PokerTable = () => {
+  const [selectedPosition, setSelectedPosition] = useState({ id: '', label: '', category: '' });
+
+  const handleButtonClick = (id) => {
+    let category = '';
+    if (['1SB', '2BB', '3UTG'].includes(id)) {
+      category = 'early';
+    } else if (['5UTG2', '6UTG3', '7UTG4'].includes(id)) {
+      category = 'middle';
+    } else if (['8RS', '9CO', '10DEAL'].includes(id)) {
+      category = 'late';
+    }
+
+    const position = positions.find(pos => pos.id === id);
+    setSelectedPosition({ id: position.id, label: position.label, category });
+  };
+
   return (
-    <Box className="PokerTable">
-      <Typography variant="h3" component="h2" gutterBottom className="positionTitle">
-        Position 
+    <Box className="pokerTable">
+      <Typography variant="h3" component="h2" gutterBottom>
+        Position Play
       </Typography>
-      <Stack direction="row" spacing={1}>
-      <Chip label="Position" variant="outlined" />
-    </Stack>
       <Box className="tableBackground">
         {positions.map((pos) => (
           <Button
@@ -33,6 +49,7 @@ const PokerTable = () => {
             variant="contained"
             color="primary"
             className={`position ${pos.className}`}
+            onClick={() => handleButtonClick(pos.id)}
           >
             {pos.label}
           </Button>
@@ -45,6 +62,14 @@ const PokerTable = () => {
           <p>🍓 = early</p>
         </Typography>
       </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
+        <PositionChip
+          id={selectedPosition.id}
+          label={selectedPosition.label}
+          category={selectedPosition.category}
+        />
+      </Box>
+      <Cards />
     </Box>
   );
 };
