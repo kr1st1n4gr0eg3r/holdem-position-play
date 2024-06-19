@@ -31,17 +31,22 @@ const getColor = (suit) => {
 
 const Cards = () => {
   return (
-    <Box className="cardsContainer">
-      {suits.map(suit => (
-        ranks.map(rank => (
-          <Box key={`${rank.value}${suit}`} className="card">
-            <Typography variant="h6">
-              <span className="rank" style={{ color: getColor(suit) }}>{rank.label}</span>
-              <span className="suit" style={{ color: getColor(suit) }}>{suit}</span>
-            </Typography>
-          </Box>
-        ))
-      ))}
+    <Box className="cardsSection">
+      <Typography variant="h3" component="h2" className="cardsTitle" gutterBottom>
+        Cards
+      </Typography>
+      <Box className="cardsContainer">
+        {suits.map(suit => (
+          ranks.map(rank => (
+            <Box key={`${rank.value}${suit}`} className="card">
+              <Typography variant="h6">
+                <span className="rank" style={{ color: getColor(suit) }}>{rank.label}</span>
+                <span className="suit" style={{ color: getColor(suit) }}>{suit}</span>
+              </Typography>
+            </Box>
+          ))
+        ))}
+      </Box>
     </Box>
   );
 };

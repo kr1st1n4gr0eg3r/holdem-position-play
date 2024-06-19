@@ -36,7 +36,7 @@ const PokerTable = () => {
   return (
     <Box className="pokerTable">
       <Typography variant="h3" component="h2" gutterBottom>
-        Position Play
+        Position
       </Typography>
       <Box className="tableBackground">
         {positions.map((pos) => (
