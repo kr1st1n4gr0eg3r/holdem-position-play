@@ -29,19 +29,19 @@ const getColor = (suit) => {
   }
 };
 
-const Cards = ({ onCardSelection }) => {
-  const [selectedCards, setSelectedCards] = useState([]);
+const Cards = ({ setSelectedCards }) => {
+  const [selectedCards, setSelectedCardsLocal] = useState([]);
 
   useEffect(() => {
-    onCardSelection(selectedCards);
-  }, [selectedCards, onCardSelection]);
+    setSelectedCards(selectedCards);
+  }, [selectedCards, setSelectedCards]);
 
   const handleCardClick = (card) => {
     if (selectedCards.length < 2) {
-      setSelectedCards([...selectedCards, card]);
+      setSelectedCardsLocal([...selectedCards, card]);
     } else {
       const newSelection = [...selectedCards.slice(1), card];
-      setSelectedCards(newSelection);
+      setSelectedCardsLocal(newSelection);
     }
   };
 
