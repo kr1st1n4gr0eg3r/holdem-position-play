@@ -35,9 +35,11 @@ const PokerTable = () => {
 
   return (
     <Box className="pokerTable">
+    <div className="positionTitle">
       <Typography variant="h3" component="h2" gutterBottom>
         Position
       </Typography>
+      </div>
       <Box className="tableBackground">
         {positions.map((pos) => (
           <Button

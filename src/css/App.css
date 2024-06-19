@@ -8,12 +8,13 @@
   align-items: center; /* Center items vertically */
   height: 100vh; /* Full height of the viewport */
   padding: 20px;
+  align-items: flex-start;
 }
 
-.pokerTable {
-  flex: 1; /* Adjust as needed */
+/* .pokerTable {
+  flex: 1; 
 }
 
 .cardsContainer {
-  flex: 1; /* Adjust as needed */
-}
+  flex: 1;
+} */
