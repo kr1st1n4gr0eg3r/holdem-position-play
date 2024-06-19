@@ -1,7 +1,6 @@
-// src/Cards.js
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import './cards.css';
+import '../css/cards.css';
 
 const suits = ['♥', '♠', '♦', '♣'];
 const ranks = [
@@ -21,7 +20,7 @@ const ranks = [
 ];
 
 const getColor = (suit) => {
-  switch(suit) {
+  switch (suit) {
     case '♣': return 'green';
     case '♥': return 'red';
     case '♦': return 'blue';
@@ -36,8 +35,8 @@ const Cards = () => {
       {suits.map(suit => (
         ranks.map(rank => (
           <Box key={`${rank.value}${suit}`} className="card">
-            <Typography variant="h6" style={{ color: getColor(suit) }}>
-              <span className="rank">{rank.label}</span>
+            <Typography variant="h6">
+              <span className="rank" style={{ color: getColor(suit) }}>{rank.label}</span>
               <span className="suit" style={{ color: getColor(suit) }}>{suit}</span>
             </Typography>
           </Box>

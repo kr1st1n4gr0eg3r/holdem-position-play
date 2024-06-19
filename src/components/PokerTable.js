@@ -1,21 +1,19 @@
-// src/PokerTable.js
 import React, { useState } from 'react';
 import { Button, Typography, Box } from '@mui/material';
-import PositionChip from './PositionChip'; // Import the PositionChip component
-import Cards from './Cards'; // Import the new Cards component
-import './positions.css';
+import PositionChip from './PositionChip';
+import '../css/positions.css';
 
 const positions = [
-  { id: '1SB', label: '🍓 SB', className: 'position-SB'},
-  { id: '2BB', label: '🍓 BB', className: 'position-BB'},
-  { id: '3UTG', label: '🍓 UTG', className: 'position-3UTG'},
+  { id: '1SB', label: '🍓 SB', className: 'position-SB' },
+  { id: '2BB', label: '🍓 BB', className: 'position-BB' },
+  { id: '3UTG', label: '🍓 UTG', className: 'position-3UTG' },
   { id: '4UTG1', label: '🍓 UTG+1', className: 'position-4UTG1' },
   { id: '5UTG2', label: '🌝 UTG+2', className: 'position-5UTG2' },
   { id: '6UTG3', label: '🌝 UTG+3', className: 'position-6UTG3' },
   { id: '7UTG4', label: '🌝 UTG+4', className: 'position-7UTG4' },
   { id: '8RS', label: '🦖 Raising Seat', className: 'position-8RS' },
   { id: '9CO', label: '🦖 Cutoff', className: 'position-9CO' },
-  { id: '10DEAL', label: '🦖 Dealer', className: 'position-10DEAL'},
+  { id: '10DEAL', label: '🦖 Dealer', className: 'position-10DEAL' },
 ];
 
 const PokerTable = () => {
@@ -23,7 +21,7 @@ const PokerTable = () => {
 
   const handleButtonClick = (id) => {
     let category = '';
-    if (['1SB', '2BB', '3UTG'].includes(id)) {
+    if (['1SB', '2BB', '3UTG', '4UTG1'].includes(id)) {
       category = 'early';
     } else if (['5UTG2', '6UTG3', '7UTG4'].includes(id)) {
       category = 'middle';
@@ -69,7 +67,6 @@ const PokerTable = () => {
           category={selectedPosition.category}
         />
       </Box>
-      <Cards />
     </Box>
   );
 };

@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-around; /* Adjust alignment as needed */
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* Full height of the viewport */
+  padding: 20px;
+}
+
+.pokerTable {
+  flex: 1; /* Adjust as needed */
+}
+
+.cardsContainer {
+  flex: 1; /* Adjust as needed */
+}
