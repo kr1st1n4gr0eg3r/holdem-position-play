@@ -1,9 +1,6 @@
 Practicing my rusty-ass logic 🧠
 
-![Dog Playing Poker](https://github.com/your-username/your-repo-name/raw/main/src/images/dog-playing-poker.gif)
-
-
-
+![Dog Playing Poker](https://raw.githubusercontent.com/kr1st1n4gr0eg3r/holdem-position-play/main/src/images/dog-playing-poker.gif)
 
 # Getting Started with Create React App
 
