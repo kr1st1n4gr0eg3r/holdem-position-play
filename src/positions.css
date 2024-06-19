@@ -1,0 +1,84 @@
+.positionTitle {
+  padding-bottom: 30px;
+}
+
+.pokerTable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #121212;
+}
+
+.tableBackground {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  border: 2px solid blue; /* Adjust this as needed */
+  border-radius: 50%;
+  position: relative;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.position-10DEAL {
+  position: absolute !important;
+  bottom: 0px !important;
+}
+
+.position-9CO {
+  right: 0px;
+  bottom: 15%;
+  position: absolute !important;
+}
+
+.position-8RS {
+  right: 0px;
+  bottom: 40%;
+  position: absolute !important;
+}
+
+.position-7UTG4 {
+  right: 0px;
+  bottom: 65%;
+  position: absolute !important;
+}
+
+.position-6UTG3 {
+  right: 0px;
+  bottom: 90%;
+  position: absolute !important;
+}
+
+.position-5UTG2 {
+  bottom: 100%;
+  position: absolute !important;
+}
+
+.position-4UTG1 {
+  left: 0px;
+  bottom: 90%;
+  position: absolute !important;
+}
+
+.position-3UTG {
+  left: 0px;
+  bottom: 65%;
+  position: absolute !important;
+}
+
+.position-SB {
+  left: 0px;
+  bottom: 40%;
+  position: absolute !important;
+}
+
+.position-BB {
+  left: 0px;
+  bottom: 15%;
+  position: absolute !important;
+}
