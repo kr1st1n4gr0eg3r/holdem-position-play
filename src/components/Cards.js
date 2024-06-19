@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import '../css/cards.css';
 
@@ -29,7 +29,22 @@ const getColor = (suit) => {
   }
 };
 
-const Cards = () => {
+const Cards = ({ onCardSelection }) => {
+  const [selectedCards, setSelectedCards] = useState([]);
+
+  useEffect(() => {
+    onCardSelection(selectedCards);
+  }, [selectedCards, onCardSelection]);
+
+  const handleCardClick = (card) => {
+    if (selectedCards.length < 2) {
+      setSelectedCards([...selectedCards, card]);
+    } else {
+      const newSelection = [...selectedCards.slice(1), card];
+      setSelectedCards(newSelection);
+    }
+  };
+
   return (
     <Box className="cardsSection">
       <Typography variant="h3" component="h2" className="cardsTitle" gutterBottom>
@@ -38,7 +53,11 @@ const Cards = () => {
       <Box className="cardsContainer">
         {suits.map(suit => (
           ranks.map(rank => (
-            <Box key={`${rank.value}${suit}`} className="card">
+            <Box
+              key={`${rank.value}${suit}`}
+              className={`card ${selectedCards.includes(`${rank.value}${suit}`) ? 'selected' : ''}`}
+              onClick={() => handleCardClick(`${rank.value}${suit}`)}
+            >
               <Typography variant="h6">
                 <span className="rank" style={{ color: getColor(suit) }}>{rank.label}</span>
                 <span className="suit" style={{ color: getColor(suit) }}>{suit}</span>

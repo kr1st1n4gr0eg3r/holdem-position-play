@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Typography, Box } from '@mui/material';
+import { Button, Typography, Box, Chip } from '@mui/material';
 import PositionChip from './PositionChip';
+import Cards from './Cards';
 import '../css/positions.css';
 
 const positions = [
@@ -18,6 +19,7 @@ const positions = [
 
 const PokerTable = () => {
   const [selectedPosition, setSelectedPosition] = useState({ id: '', label: '', category: '' });
+  const [selectedCards, setSelectedCards] = useState([]);
 
   const handleButtonClick = (id) => {
     let category = '';
@@ -33,28 +35,32 @@ const PokerTable = () => {
     setSelectedPosition({ id: position.id, label: position.label, category });
   };
 
+  const handleCardSelection = (cards) => {
+    setSelectedCards(cards);
+  };
+
   return (
-    <Box className="pokerTable">
-    <div className="positionTitle">
-      <Typography variant="h3" component="h2" gutterBottom>
+    <Box className="pokerTableContainer">
+      <Typography variant="h3" component="h2" className="cardsTitle" gutterBottom>
         Position
       </Typography>
-      </div>
-      <Box className="tableBackground">
-        {positions.map((pos) => (
-          <Button
-            key={pos.id}
-            id={pos.id}
-            size="small"
-            variant="contained"
-            color="primary"
-            className={`position ${pos.className}`}
-            onClick={() => handleButtonClick(pos.id)}
-          >
-            {pos.label}
-          </Button>
-        ))}
-      </Box>
+      <Box className="pokerTable">
+        <Box className="tableBackground">
+          {positions.map((pos) => (
+            <Button
+              key={pos.id}
+              id={pos.id}
+              size="small"
+              variant="contained"
+              color="primary"
+              className={`position ${pos.className}`}
+              onClick={() => handleButtonClick(pos.id)}
+            >
+              {pos.label}
+            </Button>
+          ))}
+        </Box>
+
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Typography component="div" sx={{ display: 'flex', gap: 2 }}>
           <p>🦖 = late</p>
@@ -68,7 +74,11 @@ const PokerTable = () => {
           label={selectedPosition.label}
           category={selectedPosition.category}
         />
+        <Chip label={selectedCards[0] || "Card 1"} variant="outlined" disabled={!selectedCards[0]} />
+        <Chip label={selectedCards[1] || "Card 2"} variant="outlined" disabled={!selectedCards[1]} />
       </Box>
+      <Cards onCardSelection={handleCardSelection} />
+    </Box>
     </Box>
   );
 };
