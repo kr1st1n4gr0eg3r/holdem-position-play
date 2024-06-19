@@ -1,3 +1,10 @@
+Practicing my rusty-ass logic 🧠
+
+![Dog Playing Poker](https://github.com/your-username/your-repo-name/raw/main/src/images/dog-playing-poker.gif)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
